@@ -14,6 +14,21 @@ function displayCommits() {
   document.getElementById('details').innerHTML = commitsList;
 }
 
+function displayBranches() {
+  const branches = JSON.parse(this.responseText);
+  const branchesList = `<ul>${branches
+    .map(
+      branch =>
+        '<li><strong>' +
+        branch.author.login +
+        '</strong> - ' +
+        branch.commit.message +
+        '</li>'
+    )
+    .join('')}</ul>`;
+  document.getElementById('details').innerHTML = branchesList;
+}
+
 function getCommits(el) {
   const name = el.dataset.repo;
   const username = el.dataset.username;
