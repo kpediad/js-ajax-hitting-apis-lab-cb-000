@@ -47,7 +47,7 @@ function getBranches(el) {
   req.send();
 }
 
-function showRepositories() {
+function displayRepositories() {
   const repos = JSON.parse(this.responseText);
   //console.log(repos);
   const repoList = `<ul>${repos
