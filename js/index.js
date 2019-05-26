@@ -30,8 +30,7 @@ function displayBranches() {
 }
 
 function getCommits(el) {
-  const name = el.dataset.repo;
-  console.log("In commits: repo name: " + name);
+  const name = el.dataset.repository;
   const username = el.dataset.username;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayCommits);
@@ -40,8 +39,7 @@ function getCommits(el) {
 }
 
 function getBranches(el) {
-  const name = el.dataset.repo;
-  console.log("In branches: repo name: " + name);
+  const name = el.dataset.repository;
   const username = el.dataset.username;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayBranches);
@@ -53,7 +51,7 @@ function displayRepositories() {
   const repos = JSON.parse(this.responseText);
   //console.log(repos);
   const repoList = `<ul>${repos
-    .map(r => '<li><a href="' + r.html_url + '">' + r.name + '</a>' + ' - <a href="#" data-username="' + r.owner.login + '" data-repo="' + r.name + '" onclick="getCommits(this)">Get Commits</a>' + ' - <a href="#" data-username="' + r.owner.login + '" data-repo="' + r.name + '" onclick="getBranches(this)">Get Branches</a></li>')
+    .map(r => '<li><a href="' + r.html_url + '">' + r.name + '</a>' + ' - <a href="#" data-username="' + r.owner.login + '" data-repository="' + r.name + '" onclick="getCommits(this)">Get Commits</a>' + ' - <a href="#" data-username="' + r.owner.login + '" data-repository="' + r.name + '" onclick="getBranches(this)">Get Branches</a></li>')
     .join('')}</ul>`;
   document.getElementById('repositories').innerHTML = repoList;
 }
