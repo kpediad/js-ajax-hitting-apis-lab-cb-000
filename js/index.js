@@ -1,7 +1,11 @@
 // your code here
 function showRepositories() {
-  //this is set to the XMLHttpRequest object that fired the event
-  console.log(this.responseText);
+  const repos = JSON.parse(this.responseText);
+  //console.log(repos);
+  const repoList = `<ul>${repos
+    .map(r => '<li><a href=\"' r.html_url + '\">'+ r.name + '</a></li>')
+    .join('')}</ul>`;
+  document.getElementById('repositories').innerHTML = repoList;
 }
 
 function getRepositories() {
