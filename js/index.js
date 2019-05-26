@@ -31,6 +31,7 @@ function displayBranches() {
 
 function getCommits(el) {
   const name = el.dataset.repo;
+  console.log("In commits: repo name: " + name);
   const username = el.dataset.username;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayCommits);
@@ -40,6 +41,7 @@ function getCommits(el) {
 
 function getBranches(el) {
   const name = el.dataset.repo;
+  console.log("In commits: repo name: " + name);
   const username = el.dataset.username;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayBranches);
