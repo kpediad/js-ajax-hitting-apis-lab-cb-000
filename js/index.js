@@ -19,10 +19,8 @@ function displayBranches() {
   const branchesList = `<ul>${branches
     .map(
       branch =>
-        '<li><strong>' +
-        branch.author.login +
-        '</strong> - ' +
-        branch.commit.message +
+        '<li>' +
+        branch.name +
         '</li>'
     )
     .join('')}</ul>`;
